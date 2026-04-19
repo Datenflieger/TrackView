@@ -6,7 +6,7 @@ import com.dwarslooper.cactus.client.systems.config.settings.impl.IntegerSetting
 import com.dwarslooper.cactus.client.systems.config.settings.impl.Setting
 import com.dwarslooper.cactus.client.util.CactusConstants.mc
 import com.dwarslooper.cactus.client.util.generic.TextUtils
-import net.minecraft.client.gui.GuiGraphics
+import net.minecraft.client.gui.GuiGraphicsExtractor
 import net.minecraft.client.renderer.RenderPipelines
 import org.endlesssource.mediainterface.api.PlaybackState
 import org.joml.Vector2i
@@ -64,7 +64,7 @@ class TrackViewHudElement : DynamicHudElement<TrackViewHudElement>("trackView", 
         TrackViewMediaService.start()
     }
 
-    override fun render(context: GuiGraphics, x: Int, y: Int, screenWidth: Int, screenHeight: Int, delta: Float, inEditor: Boolean) {
+    override fun render(context: GuiGraphicsExtractor, x: Int, y: Int, screenWidth: Int, screenHeight: Int, delta: Float, inEditor: Boolean) {
         val snapshot = if (inEditor) editorSnapshot else TrackViewMediaService.snapshot()
         if (!inEditor && hideWhenNoMedia.get() && !snapshot.hasMedia) {
             return
@@ -75,7 +75,7 @@ class TrackViewHudElement : DynamicHudElement<TrackViewHudElement>("trackView", 
     }
 
     override fun renderContent(
-        context: GuiGraphics,
+        context: GuiGraphicsExtractor,
         x: Int,
         y: Int,
         width: Int,
@@ -116,16 +116,16 @@ class TrackViewHudElement : DynamicHudElement<TrackViewHudElement>("trackView", 
         val title = TextUtils.trimToWidth("$statePrefix $rawTitle", textSpace, "...")
         val artist = TextUtils.trimToWidth(rawArtist, textSpace, "...")
 
-        context.drawString(mc.font, title, drawX, drawY, textColorValue, textShadows())
+        context.text(mc.font, title, drawX, drawY, textColorValue, textShadows())
 
         val secondLineY = drawY + mc.font.lineHeight + lineSpacing
-        context.drawString(mc.font, artist, drawX, secondLineY, accentTitleColor, textShadows())
+        context.text(mc.font, artist, drawX, secondLineY, accentTitleColor, textShadows())
 
         if (showSourceApp.get()) {
             val source = snapshot.sourceApp.ifBlank { "Unknown player" }
             val sourceY = secondLineY + mc.font.lineHeight + if (compact) compactExtraSourceOffset else defaultSourceOffset
             val sourceText = TextUtils.trimToWidth(source, textSpace, "...")
-            context.drawString(mc.font, sourceText, drawX, sourceY, accentSourceColor, textShadows())
+            context.text(mc.font, sourceText, drawX, sourceY, accentSourceColor, textShadows())
         }
 
         if (showProgressBar.get() && snapshot.durationMillis != null && snapshot.durationMillis > 0L && snapshot.positionMillis != null) {
@@ -144,8 +144,8 @@ class TrackViewHudElement : DynamicHudElement<TrackViewHudElement>("trackView", 
         return getSize()
     }
 
-    private fun drawNoMediaFallback(context: GuiGraphics, x: Int, y: Int, width: Int, height: Int, color: Int) {
-        context.drawCenteredString(mc.font, "No active media", x + width / 2, y + (height - mc.font.lineHeight) / 2 + 1, color)
+    private fun drawNoMediaFallback(context: GuiGraphicsExtractor, x: Int, y: Int, width: Int, height: Int, color: Int) {
+        context.centeredText(mc.font, "No active media", x + width / 2, y + (height - mc.font.lineHeight) / 2 + 1, color)
     }
 
     private fun resolveThumbnailSize(compact: Boolean, height: Int): Int {
@@ -158,7 +158,7 @@ class TrackViewHudElement : DynamicHudElement<TrackViewHudElement>("trackView", 
         return base.coerceAtMost((height - padding * 2).coerceAtLeast(0))
     }
 
-    private fun renderThumbnail(context: GuiGraphics, snapshot: TrackViewSnapshot, x: Int, y: Int, size: Int) {
+    private fun renderThumbnail(context: GuiGraphicsExtractor, snapshot: TrackViewSnapshot, x: Int, y: Int, size: Int) {
         val artworkId = snapshot.artworkToken?.let(TrackViewArtworkCache::request)
         if (artworkId != null) {
             context.blit(RenderPipelines.GUI_TEXTURED, artworkId, x, y, 0f, 0f, size, size, size, size)
@@ -166,7 +166,7 @@ class TrackViewHudElement : DynamicHudElement<TrackViewHudElement>("trackView", 
         }
 
         context.fill(x, y, x + size, y + size, placeholderColor)
-        context.drawCenteredString(mc.font, "♪", x + size / 2, y + (size - mc.font.lineHeight) / 2 + 1, placeholderNoteColor)
+        context.centeredText(mc.font, "♪", x + size / 2, y + (size - mc.font.lineHeight) / 2 + 1, placeholderNoteColor)
     }
 
     private fun statePrefix(state: PlaybackState): String {

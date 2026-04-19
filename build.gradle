@@ -1,7 +1,12 @@
 plugins {
 	id 'fabric-loom' version "${loom_version}"
 	id 'org.jetbrains.kotlin.jvm' version "${kotlin_version}"
+	id 'com.gradleup.shadow' version '8.3.6'
 	id 'maven-publish'
+}
+
+configurations {
+	shade
 }
 
 version = project.mod_version
@@ -44,7 +49,18 @@ dependencies {
 	// Cactus Mod (Change here the Version you want to use)
 	modImplementation "maven.modrinth:cactus:0.12.3"
 	modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_language_kotlin_version}"
-	modImplementation "org.endlesssource.mediainterface:all:${project.mediainterface_version}"
+	shade "org.endlesssource.mediainterface:all:${project.mediainterface_version}"
+	implementation "org.endlesssource.mediainterface:all:${project.mediainterface_version}"
+}
+
+tasks.named("shadowJar") {
+	archiveClassifier = "dev-shadow"
+	configurations = [project.configurations.shade]
+}
+
+tasks.named("remapJar") {
+	dependsOn(tasks.named("shadowJar"))
+	inputFile = tasks.named("shadowJar").flatMap { it.archiveFile }
 }
 
 processResources {

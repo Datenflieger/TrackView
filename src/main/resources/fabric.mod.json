@@ -1,0 +1,28 @@
+{
+	"schemaVersion": 1,
+	"id": "trackview",
+	"version": "${version}",
+	"name": "TrackView",
+	"description": "TrackView is a Cactus addon that adds a clean media preview HUD element to your game.",
+	"authors": [
+		"Datenflieger"
+	],
+	"contact": {
+		"homepage": "https://cactusmod.xyz/",
+		"sources": "https://github.com/datenflieger/trackview"
+	},
+	"icon": "assets/trackview/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"cactus": [
+			"xyz.datenflieger.TrackViewAddon"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.17.3",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*",
+		"fabric-language-kotlin": ">=${fabric_language_kotlin_version}"
+	}
+}

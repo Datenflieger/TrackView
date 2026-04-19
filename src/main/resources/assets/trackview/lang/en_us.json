@@ -1,0 +1,15 @@
+{
+  "hud.elements.trackView.name": "Track View",
+  "hud.elements.trackView.settings.showThumbnail.name": "Show Thumbnail",
+  "hud.elements.trackView.settings.showThumbnail.description": "Displays album art or a media placeholder.",
+  "hud.elements.trackView.settings.imageSize.name": "Image Size",
+  "hud.elements.trackView.settings.imageSize.description": "Controls cover image size in pixels.",
+  "hud.elements.trackView.settings.showSourceApp.name": "Show Source App",
+  "hud.elements.trackView.settings.showSourceApp.description": "Shows the player application name (for example Spotify or browser session).",
+  "hud.elements.trackView.settings.showProgressBar.name": "Show Progress Bar",
+  "hud.elements.trackView.settings.showProgressBar.description": "Displays media progress when duration and position are available.",
+  "hud.elements.trackView.settings.hideWhenNoMedia.name": "Hide Without Media",
+  "hud.elements.trackView.settings.hideWhenNoMedia.description": "Hides the element when no active media session is available.",
+  "hud.elements.trackView.settings.compactMode.name": "Compact Mode",
+  "hud.elements.trackView.settings.compactMode.description": "Uses a denser layout with less vertical space."
+}

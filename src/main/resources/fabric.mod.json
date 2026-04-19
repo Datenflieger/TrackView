@@ -11,7 +11,7 @@
 		"homepage": "https://cactusmod.xyz/",
 		"sources": "https://github.com/cactusmod/addon-template"
 	},
-	"icon": "assets/addon-template/icon.png",
+	"icon": "assets/trackview/icon.png",
 	"environment": "client",
 	"entrypoints": {
 		"cactus": [

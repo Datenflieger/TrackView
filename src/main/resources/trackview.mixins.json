@@ -1,6 +1,6 @@
 {
 	"required": true,
-	"package": "com.dwarslooper.cactus.addon_template.mixin",
+	"package": "xyz.datenflieger.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
 		"ExampleMixin"

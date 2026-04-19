@@ -1,11 +1,11 @@
 {
 	"schemaVersion": 1,
-	"id": "addon-template",
+	"id": "trackview",
 	"version": "${version}",
-	"name": "Addon Template for Cactus Mod",
-	"description": "This is an example description! Tell everyone what your addon is about!",
+	"name": "TrackView",
+	"description": "TrackView is a Cactus addon that adds a clean media preview HUD element to your game.",
 	"authors": [
-		"Me!"
+		"Datenflieger"
 	],
 	"contact": {
 		"homepage": "https://cactusmod.xyz/",
@@ -15,11 +15,11 @@
 	"environment": "client",
 	"entrypoints": {
 		"cactus": [
-			"com.dwarslooper.cactus.addon_template.AddonTemplateMain"
+			"xyz.datenflieger.TrackViewAddon"
 		]
 	},
 	"mixins": [
-		"addon-template.mixins.json"
+		"trackview.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.17.3",

@@ -1,0 +1,35 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="36" x2="1120" y2="332" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#121A24"/>
+      <stop offset="1" stop-color="#1C2837"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="650" y1="246" x2="1030" y2="246" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A9D44D"/>
+      <stop offset="1" stop-color="#70A821"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="14" y="14" width="1172" height="332" rx="30" fill="url(#bg)"/>
+  <rect x="40" y="40" width="1120" height="280" rx="20" stroke="#33475E" stroke-opacity="0.8" stroke-width="2"/>
+
+  <rect x="74" y="76" width="304" height="208" rx="20" fill="#111B27"/>
+  <rect x="96" y="98" width="124" height="124" rx="22" fill="#317FE2"/>
+  <circle cx="158" cy="160" r="34" fill="#1A4A85"/>
+  <circle cx="158" cy="160" r="12" fill="#A9D2FF"/>
+
+  <rect x="238" y="116" width="114" height="16" rx="8" fill="#E0E9F5"/>
+  <rect x="238" y="143" width="92" height="12" rx="6" fill="#99AECA"/>
+  <rect x="238" y="163" width="124" height="12" rx="6" fill="#8199B8"/>
+
+  <rect x="96" y="238" width="254" height="12" rx="6" fill="#33475D"/>
+  <rect x="96" y="238" width="162" height="12" rx="6" fill="url(#accent)"/>
+
+  <text x="430" y="142" fill="#F2F7FD" font-size="62" font-family="Segoe UI, Inter, Arial" font-weight="700">TrackView</text>
+  <text x="430" y="182" fill="#9CB0C9" font-size="21" font-family="Segoe UI, Inter, Arial" font-weight="500">Now playing HUD for Cactus on Fabric</text>
+
+  <rect x="430" y="206" width="364" height="10" rx="5" fill="#33475D"/>
+  <rect x="430" y="206" width="232" height="10" rx="5" fill="url(#accent)"/>
+
+  <text x="430" y="252" fill="#C1CEE0" font-size="20" font-family="Segoe UI, Inter, Arial" font-weight="500">Album art  •  title/artist  •  source app  •  progress</text>
+</svg>

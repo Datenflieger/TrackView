@@ -12,6 +12,8 @@ base {
 }
 
 repositories {
+	mavenCentral()
+
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
@@ -42,6 +44,7 @@ dependencies {
 	// Cactus Mod (Change here the Version you want to use)
 	modImplementation "maven.modrinth:cactus:0.12.3"
 	modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_language_kotlin_version}"
+	modImplementation "org.endlesssource.mediainterface:all:${project.mediainterface_version}"
 }
 
 processResources {

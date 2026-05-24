@@ -43,8 +43,7 @@ dependencies {
 	// Cactus Mod (Change here the Version you want to use)
 	implementation "maven.modrinth:cactus:0.13"
 	implementation "net.fabricmc:fabric-language-kotlin:${project.fabric_language_kotlin_version}"
-	implementation "org.endlesssource.mediainterface:all:${project.mediainterface_version}"
-	include "org.endlesssource.mediainterface:all:${project.mediainterface_version}"
+	implementation(include("org.endlesssource.mediainterface:all:${project.mediainterface_version}"))
 }
 
 processResources {
